@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             checkAnswer();
         }
     })
+
     runGame('addition');
 })
 
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
  *  and after the user's answer has been processed
  */
 function runGame(gameType) {
+
     document.getElementById('answer-box').value = "";
     document.getElementById('answer-box').focus();
 
@@ -78,6 +80,8 @@ function calculateCorrectAnswer() {
 
     if (operator === '+') {
         return [operand1 + operand2, 'addition'];
+    } else if (operator === '-') {
+        return [operand1 - operand2, 'subtract'];
     } else if (operator === 'x') {
         return [operand1 * operand2, 'multiply'];
     }
@@ -116,7 +120,7 @@ function displaySubtractQuestion(operand1, operand2) {
 
 }
 
-function displayMultiplyQuestion() {
+function displayMultiplyQuestion(operand1, operand2) {
     document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = 'x';
